@@ -12,7 +12,6 @@ const SignUp = () => {
 
   const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState(false);
-  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -41,19 +40,16 @@ const SignUp = () => {
 
       if (res.ok) {
         setError(false);
-        setSuccess("Signup successful");
         setLoading(false);
         router.push("/login");
       } else {
         setError(true);
-        setSuccess("");
         setLoading(false);
 
       }
     } catch (error) {
       setError(true);
       setLoading(false);
-      setSuccess("");
       console.log(error);
     }
   }

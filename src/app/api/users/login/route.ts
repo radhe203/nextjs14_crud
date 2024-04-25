@@ -15,10 +15,10 @@ export async function POST(request: NextRequest) {
 
         const user = await User.findOne({ email })
 
-        if (!user) return NextResponse.json({ message: "User does not exist", status: 400 })
+        if (!user) return NextResponse.json({ message: "User does not exist"},{status:400})
 
         const isMatch = await bcryptjs.compare(password, user.password)
-        if (!isMatch) return NextResponse.json({ message: "Wrong credentials", status: 400 })
+        if (!isMatch) return NextResponse.json({ message: "Wrong credentials" },{status: 400})
 
 
         const tokenPayload = {
