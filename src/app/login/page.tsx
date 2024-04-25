@@ -34,7 +34,7 @@ const LoginPage = () => {
       if (res.ok) {
         setError(false);
         setLoading(false);
-        // router.push("/profile");
+        router.push("/profile");
       } else {
         setError(data.message);
         setLoading(false);
